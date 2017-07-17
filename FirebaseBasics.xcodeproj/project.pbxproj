@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		132F5FD11F1D519100AD4F7E /* FirebaseAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132F5FD01F1D519100AD4F7E /* FirebaseAccess.swift */; };
 		4929B8241F1C0D730098946D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4929B8231F1C0D730098946D /* AppDelegate.swift */; };
 		4929B8261F1C0D730098946D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4929B8251F1C0D730098946D /* ViewController.swift */; };
 		4929B8291F1C0D730098946D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4929B8271F1C0D730098946D /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		132F5FD01F1D519100AD4F7E /* FirebaseAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAccess.swift; sourceTree = "<group>"; };
 		13F3AAC8AEF5E1D6A565F89E /* Pods_FirebaseBasics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseBasics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3B5ECC0D4B3C6C4626CE49 /* Pods-FirebaseBasics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseBasics.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseBasics/Pods-FirebaseBasics.debug.xcconfig"; sourceTree = "<group>"; };
 		4929B8201F1C0D730098946D /* FirebaseBasics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseBasics.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +87,7 @@
 				4929B82A1F1C0D730098946D /* Assets.xcassets */,
 				4929B82C1F1C0D730098946D /* LaunchScreen.storyboard */,
 				4929B82F1F1C0D730098946D /* Info.plist */,
+				132F5FD01F1D519100AD4F7E /* FirebaseAccess.swift */,
 			);
 			path = FirebaseBasics;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				4929B8261F1C0D730098946D /* ViewController.swift in Sources */,
 				4929B8381F1CFF210098946D /* Bandas.swift in Sources */,
 				4929B83A1F1D07460098946D /* InfoViewController.swift in Sources */,
+				132F5FD11F1D519100AD4F7E /* FirebaseAccess.swift in Sources */,
 				4929B8241F1C0D730098946D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

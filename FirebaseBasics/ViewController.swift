@@ -11,37 +11,35 @@ import Firebase
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var bandas: Bandas?
+    var bandas = [Bandas]()
     
     var minhaTableView: UITableView  =  UITableView()
     
-    var bandaDict: [String: Any] = [:]
-    
-    var banda1 = ["nome"        : "Black Sabbath",
-                  "tipo"        : "Heavy metal",
-                  "pais"        : "Reino Unido",
-                  "integrantes" : "Tony Iommi, Geezer Butler, Ozzy Osbourne"]
-    
-    var banda2 = ["nome"        : "The Rolling Stones",
-                  "tipo"        : "Rock",
-                  "pais"        : "Reino Unido",
-                  "integrantes" : "Mick Jagger, Keith Richards, Ron Wood, Charlie Watts"]
-    
-    var banda3 = ["nome"        : "Molejo",
-                  "tipo"        : "Pagode",
-                  "pais"        : "Brasil",
-                  "integrantes" : "Anderson Leonardo, Robson Calazans, Lúcio Nascimento, Jimmy Batera, Claumirzinho, Andrezinho"]
-    
-//    var itensParaExibir : [banda1, banda2, banda3]
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        bandaDict.updateValue(banda1, forKey: "banda1")
-        bandaDict.updateValue(banda2, forKey: "banda2")
-        bandaDict.updateValue(banda3, forKey: "banda3")
         // Do any additional setup after loading the view, typically from a nib.
+        
+        registerNotifications()
     }
+    
+    func registerNotifications()
+    {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reloadBands(notification:)), name: NSNotification.Name(rawValue:
+            BANDINFO), object: nil)
+    }
+    
+    func reloadBands(notification: Notification)
+    {
+        if let userinfo = notification.userInfo
+        {
+            if let bandas = userinfo["bands"] as? [Bandas]{
+                self.bandas = bandas
+                self.minhaTableView.reloadData()
+            }
+            //Recebendo info de bandas
+        }
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -63,19 +61,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         self.view.addSubview(minhaTableView)
         
+        FirebaseAccess.sharedInstance.getBand()
+        
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return bandaDict.count
+        return self.bandas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath as IndexPath)
         
-        cell.textLabel?.text = "oi"
+        cell.textLabel?.text = self.bandas[indexPath.item].nome
+        
         
         return cell
     }

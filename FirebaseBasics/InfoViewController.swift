@@ -30,17 +30,16 @@ class InfoViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        nome.
         let tamanhoTela: CGRect = UIScreen.main.bounds
         let larguraTela = tamanhoTela.width
         let alturaTela = tamanhoTela.height
         
-        minhaTableView.frame = CGRect(x: 0, y: 50, width: larguraTela, height: alturaTela)
-
-        
-        minhaTableView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
-        
-        self.view.addSubview(minhaTableView)
+//        minhaTableView.frame = CGRect(x: 0, y: 50, width: larguraTela, height: alturaTela)
+//
+//        
+//        minhaTableView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
+//        
+//        self.view.addSubview(minhaTableView)
         
     }
 }

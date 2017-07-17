@@ -14,6 +14,6 @@ class Bandas: NSObject{
     var nome: String?
     var tipo: String?
     var pais: String?
-    var integrantes: String?
-    var shows: String?
+    var integrantes: [String]?
+    var shows: [String]?
 }
