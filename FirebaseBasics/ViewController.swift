@@ -77,13 +77,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         cell.textLabel?.text = self.bandas[indexPath.item].nome
         
-        
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-//        print("User selected table row \(indexPath.row) and item \(itensParaExibir[indexPath.row])")
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        present(InfoViewController(banda: self.bandas[indexPath.item]), animated: false, completion: nil)
     }
     
 }
