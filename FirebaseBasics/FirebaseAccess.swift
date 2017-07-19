@@ -92,4 +92,14 @@ class FirebaseAccess : NSObject
             }
         })
     }
+    
+    func createBand()
+    {
+        let key = self.database.child("Bandas").childByAutoId().key
+        
+        let bandValue: [String: Any] = ["nome": "Skank", "integrantes": ["Samuel Rosa","Henrique Portugal","Lelo Zaneti","Haroldo Ferreti"], "pais": "Brasil", "tipo": "", "shows": ["10/02", "28/02"]]
+        
+        self.database.child("Bandas").child(key).setValue(bandValue)
+        //self.database.child("Bandas").child(key).setValue
+    }
 }
