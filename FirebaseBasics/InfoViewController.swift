@@ -59,7 +59,7 @@ class InfoViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         nome.text = banda.nome
         nome.frame = CGRect(x: 20, y: 60, width: larguraTela, height: 30)
-        nome.frame = UIScreen.mudaEscala(vetor: CGRect(x: 20, y: 60, width: larguraTela, height: 30))
+        //nome.frame = UIScreen.mudaEscala(vetor: CGRect(x: 20, y: 60, width: larguraTela, height: 30))
         self.view.addSubview(nome)
         
         tipo.text = "Tipo:"
@@ -82,7 +82,8 @@ class InfoViewController: UIViewController, UITableViewDataSource, UITableViewDe
         integrante.frame = CGRect(x: 20, y: 220, width: larguraTela, height: 30)
         self.view.addSubview(integrante)
         
-        integrantes.frame = UIScreen.mudaEscala(vetor: CGRect(x: 40, y: 240, width: Int(larguraTela), height: (banda.integrantes?.count)!*40))
+        //integrantes.frame = UIScreen.mudaEscala(vetor: CGRect(x: 40, y: 240, width: Int(larguraTela), height: (banda.integrantes?.count)!*40))
+        integrantes.frame = CGRect(x: 40, y: 240, width: Int(larguraTela), height: (banda.integrantes?.count)!*40)
         print ("ALTURA DA TABLEVIEW")
         print (integrantes.frame)
         integrantes.dataSource = self

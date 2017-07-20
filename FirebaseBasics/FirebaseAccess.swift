@@ -54,43 +54,32 @@ class FirebaseAccess : NSObject
                 for postValue in values{
                     let value = postValue.value as! [String: Any]
                     
-                    var banda = Bandas()
+                    let banda = Bandas()
                     
-                    let integrantes = value["integrantes"] as! [String]
+                    banda.integrantes = value["integrantes"] as? [String]
                     
-                    var arrayIntegrantes = [String]()
+                    banda.nome = value["nome"] as? String
                     
-                    for integrante in integrantes{
-                        
-                        arrayIntegrantes.append(integrante)
-                    }
+                    banda.pais = value["pais"] as? String
                     
-                    banda.integrantes = arrayIntegrantes
+                    banda.tipo = value["tipo"] as? String
                     
-                    banda.nome = value["nome"] as! String
-                    
-                    banda.pais = value["pais"] as! String
-                    
-                    banda.tipo = value["tipo"] as! String
-                    
-                    let shows = value["shows"] as! [String]
-                    
-                    var arrayShows = [String]()
-                    
-                    for show in shows{
-                        
-                        arrayShows.append(show)
-                    }
-                    
-                    banda.shows = arrayShows
-                    
+                    banda.shows = value["shows"] as? [String]
+        
                     bands.append(banda)
                 }
-                print("array de bandas", bands)
-                print("Vou mandar notification")
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: BANDINFO), object: nil, userInfo: ["bands": bands])
             }
         })
+    }
+    
+    func updateBand()
+    {
+        let key = "-KpT4BcvudZT5dewl1pu"
+        
+        let updateValue = ["tipo": "Rock Nacional/Indie Rock"]
+        
+        self.database.child("Bandas").child(key).updateChildValues(updateValue)
     }
     
     func createBand()
@@ -100,6 +89,5 @@ class FirebaseAccess : NSObject
         let bandValue: [String: Any] = ["nome": "Skank", "integrantes": ["Samuel Rosa","Henrique Portugal","Lelo Zaneti","Haroldo Ferreti"], "pais": "Brasil", "tipo": "", "shows": ["10/02", "28/02"]]
         
         self.database.child("Bandas").child(key).setValue(bandValue)
-        //self.database.child("Bandas").child(key).setValue
     }
 }
